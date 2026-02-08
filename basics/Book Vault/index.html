@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Vault</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: rgb(152, 46, 46);
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            background-color: beige;
+        }
+        input, button {
+            padding: 8px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .book {
+            background-color: #fff;
+            padding: 10px;
+            margin: 10px auto;
+            width: 80%;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+        }
+        .book-title-author{
+            display: flex;
+            align-items: center;
+        }
+        .title{
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>📚 Book Vault</h1>
+    <label for="title">Book Title</label>
+    <input type="text" id="title" placeholder="Enter book title">
+    <label for="author">Author</label>
+    <input type="text" id="author" placeholder="Enter author name">
+    <button id="addBook">Add Book</button>
+    <button id="editBtn">Edit</button> <!-- add functionality -->
+    <ul id="bookList">
+    </ul>
+</body>
+<script>
+    const titleInput = document.getElementById('title');
+    const authorInput = document.getElementById('author');
+    const addBookButton = document.getElementById('addBook');
+    const bookList = document.getElementById('bookList');
+    let books = [];
+    const loadFromLocalStorage = () => {
+        const storedBooks = localStorage.getItem('books');
+        if (storedBooks) {
+            books = JSON.parse(storedBooks);
+            books.forEach(book => renderBooks(book));
+        }
+    }
+    const saveToLocalStorage=()=>{
+        console.log("🚀 ~ books:", books)
+        localStorage.setItem('books', JSON.stringify(books));
+    }
+    const renderBooks=(book)=>{
+        const li=document.createElement('li');
+        li.className="book";
+        const bookTitleAndAuthor = document.createElement('div');
+        bookTitleAndAuthor.className = "book-title-author";
+        bookTitleAndAuthor.innerHTML = `Title:- <strong class="title">${book.title} </strong> by ${book.author}`;
+        const deleteButton=document.createElement('button');
+        deleteButton.textContent="Delete";
+        deleteButton.addEventListener('click', ()=>{
+            books = books.filter(b => b.id !== book.id);
+            console.log("🚀 ~ books after delete:", books)
+            saveToLocalStorage();
+            li.remove();
+        });
+        li.append(bookTitleAndAuthor, deleteButton);
+        bookList.appendChild(li);
+    }
+    addBookButton.addEventListener("click",  ()=>{
+        const title = titleInput.value.trim();
+        const author = authorInput.value.trim();
+        if(!title || !author){
+            alert("Please enter both title and author.");
+            return;
+        }
+        let book={
+            id: Date.now(),
+            title,
+            author
+        }
+        books.push(book);
+        titleInput.value = '';
+        authorInput.value = '';
+        renderBooks(book)
+        saveToLocalStorage();
+    })
+    loadFromLocalStorage()
+</script>
+</html>
