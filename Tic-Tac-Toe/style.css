@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #2D2A32;
+    text-align: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+h1 {
+    margin-top: 1rem;
+    font-size: 7vmin;
+    color:beige ;
+}
+h2 {
+    font-size: 6vmin;
+    color: white;
+}
+
+.container {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game {
+    height: 60vmin;
+    width: 60vmin;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+}
+
+.box{
+    height: 20vmin;
+    width: 20vmin;
+    font-size: 11vmin;
+    font-weight: lighter;
+    border: solid black 0.3rem;
+    border-top: 0cap;
+    border-left: 0cap;
+    color: #2d3d44;
+    background-color: #fafdf6e0;
+}
+
+
+#reset-btn {
+    padding: 0.9rem;
+    border: none;
+    border-radius: 1.2rem;
+    font-size: large;
+    cursor: pointer;
+    background-color: black;
+    color: #ffff;
+}
+
+.win {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+     height: 100vh;
+    width: 100vw;
+}
+#resetMsg {
+    color: rgb(255, 143, 143);
+    margin-bottom: 15px;
+}
+
+.newGame-btn{
+    margin-top: 3rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 1.5rem;
+    font-size: x-large;
+    cursor: pointer;
+    background-color: black;
+    color: #ffff;
+}
+
+.hideright{
+    border-right: 0cap;
+}
+.hidebottom{
+    border-bottom: 0cap;
+}
+
+.hide {
+    display: none;
+}
