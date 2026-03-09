@@ -46,6 +46,9 @@ h2 {
     color: #2d3d44;
     background-color: #fafdf6e0;
 }
+.box:hover {
+    opacity: 0.9;
+}
 
 
 #reset-btn {

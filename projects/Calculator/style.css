@@ -1,0 +1,65 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+}
+
+/* Center page */
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* Title */
+h1 {
+  font-size: 4vmin;
+  font-weight: 600;
+}
+
+/* Calculator */
+.calculator {
+  width: 42vmin;
+}
+
+.container {
+  border: 0.15rem solid black;
+  border-radius: 1rem;
+  padding: 2vmin;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vmin;
+}
+
+/* Display */
+.display #input {
+  width: 100%;
+  height: 8vmin;
+  font-size: 3vmin;
+  text-align: right;
+  padding: 1vmin;
+  border: 0.15rem solid black;
+  border-radius: 0.5rem;
+}
+
+/* Grid layout */
+.dial {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.4vmin;
+}
+
+/* Buttons */
+.key {
+  height: 9vmin;
+  font-size: 2.2vmin;
+  border: 0.12rem solid black;
+  border-radius: 0.4rem;
+  background: white;
+  cursor: pointer;
+}

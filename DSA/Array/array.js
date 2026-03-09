@@ -4,7 +4,7 @@
 
 // function RemoveDuplicates(arr){
 //     let i = 0;
-     
+
 //     for(let j = 1; j < arr.length;j++){
 //         if(arr[j] !== arr[i]){
 //             i++;
@@ -16,7 +16,11 @@
 
 // console.log(RemoveDuplicates(arr5))
 
-console.log([] == [])
+// --------------------------------------------------
+
+// Because array or object stores the refrence and both array have diffrent refrence.
+
+// console.log([] == []) // Output :false
 
 //---------------------------------------------------
 
@@ -116,7 +120,7 @@ console.log([] == [])
 // function findLargest(arr){
 
 //     let maxlen = arr[0];
-    
+
 //     for(let i = 1;i < arr.length;i++){
 //         if(arr[i] > maxlen){
 //             maxlen = arr[i];
@@ -126,3 +130,42 @@ console.log([] == [])
 // }
 
 // console.log(findLargest(arr1)) // Output : 7
+
+// --------------------------------------------------
+
+// Q. Rotate array by K times.;
+
+let nums = [1, 2, 3, 4, 5, 6, 7];
+
+let k = 10;
+
+// const reverse = (arr, left, right) => {
+//     if(left >= right) return;
+
+//     [arr[left], arr[right]] = [arr[right], arr[left]];
+//     reverse(arr, left + 1, right - 1);
+// }
+
+// const rotateByK = (arr, k) => {
+//     if(arr.length === 0) return arr;
+
+//     k = k % arr.length;
+
+//     reverse(arr, 0, arr.length - 1);
+//     reverse(arr, 0, k - 1);
+//     reverse(arr, k, arr.length - 1);
+
+//     return arr;
+// }
+
+// console.log(rotateByK(nums, 3));
+
+const rotateByK = (arr, k) => {
+    k = k % arr.length;
+    return [...arr.slice(-k), ...arr.slice(0, arr.length - k)];
+}
+
+console.log(rotateByK(nums, k));
+
+
+//Output : [5,6,7,1,2,3,4];

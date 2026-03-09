@@ -82,3 +82,8 @@ const newGame = () => {
 
 resetBtn.addEventListener("dblclick", resetGame);
 newGamebtn.addEventListener("click", newGame);
+
+
+// Implement a Logic to change color alternative for both O or X.
+
+// Create two button where user can choose the O , X;
